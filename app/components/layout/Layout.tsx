@@ -14,7 +14,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
   const defaultSeo: ISeoProps = {
-    title: 'Your Name - Portfolio',
+    title: 'Sipho Ndlalane - Portfolio',
     description: 'Personal portfolio showcasing my skills, projects, and experiences',
   };
 

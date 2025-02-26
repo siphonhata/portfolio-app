@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
               
               <div className="mb-4 leading-tight">
                 <motion.h1 variants={itemVariants}>
-                  <span className="block">Your Name</span>
+                  <span className="block">Sipho Ndlalane</span>
                   <span className="text-primary-600 dark:text-primary-400">Full Stack Developer</span>
                 </motion.h1>
               </div>
@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
               {/* Buttons */}
               <div className="flex flex-wrap gap-4">
                 <motion.div variants={itemVariants}>
-                  <Link href="/#projects" className="btn btn-primary px-6 py-3 rounded-lg">
+                  <Link href="#projects" className="btn btn-primary px-6 py-3 rounded-lg">
                     <span>View My Work</span>
                     <FiArrowRight className="ml-2" />
                   </Link>
@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <a
-                      href="https://github.com/yourusername"
+                      href="https://github.com/siphonhata"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-dark-100 dark:bg-dark-500 flex items-center justify-center text-dark-500 dark:text-white hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 transition-colors duration-300"
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <a
-                      href="https://linkedin.com/in/yourusername"
+                      href="https://www.linkedin.com/in/sipho-ndlalane-802534187/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-dark-100 dark:bg-dark-500 flex items-center justify-center text-dark-500 dark:text-white hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 transition-colors duration-300"
@@ -146,8 +146,8 @@ const Hero: React.FC = () => {
             >
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 shadow-xl">
                 <Image
-                  src="/assets/images/profile.jpg"
-                  alt="Your Name"
+                  src="/profile.jpg"
+                  alt="Sipho Ndlalane"
                   fill
                   sizes="(max-width: 768px) 16rem, 20rem"
                   className="object-cover"

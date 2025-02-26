@@ -16,7 +16,7 @@ import mockBlogArticles from '@/app/lib/data/articles';
 
 export default function Home() {
   const seo: ISeoProps = {
-    title: 'Your Name - Full Stack Developer',
+    title: 'Sipho Ndlalane - Full Stack Developer',
     description: 'Full Stack Developer specializing in modern web applications with React, Node.js, and more.',
   };
 

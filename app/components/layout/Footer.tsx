@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-dark-100 dark:border-dark-500 mt-8 pt-8 text-center text-dark-300 dark:text-dark-200">
-          <p>© {currentYear} Your Name. All rights reserved.</p>
+          <p>© {currentYear} Sipho Ndlalane. All rights reserved.</p>
         </div>
       </div>
     </footer>

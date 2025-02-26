@@ -243,7 +243,7 @@ const Contact: React.FC = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your Name"
+                        placeholder="Sipho Ndlalane"
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-dark-500 bg-white dark:bg-dark-700 text-dark-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                         required
                       />

@@ -12,7 +12,7 @@ interface ProjectsPageProps {
 
 export default function ProjectsPage({ projects }: ProjectsPageProps) {
   const seo: ISeoProps = {
-    title: 'Projects - Your Name',
+    title: 'Projects - Sipho Ndlalane',
     description: 'Explore my portfolio of web development and design projects.',
   };
 
