@@ -24,7 +24,7 @@ export interface ISkill {
   id: string;
   name: string;
   icon: string;
-  category: 'frontend' | 'backend' | 'design' | 'other';
+  category: 'frontend' | 'backend' | 'design' | 'other' | 'database' | 'version-control';
   proficiency: number; // 1-100
 }
 

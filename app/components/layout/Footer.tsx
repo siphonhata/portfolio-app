@@ -9,20 +9,14 @@ const socialLinks: ISocialLink[] = [
   {
     id: '1',
     platform: 'github',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/siphonhata',
     icon: 'github',
   },
   {
     id: '2',
     platform: 'linkedin',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://www.linkedin.com/in/sipho-ndlalane-802534187/',
     icon: 'linkedin',
-  },
-  {
-    id: '3',
-    platform: 'twitter',
-    url: 'https://twitter.com/yourusername',
-    icon: 'twitter',
   },
 ];
 

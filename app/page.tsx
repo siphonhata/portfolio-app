@@ -24,9 +24,9 @@ export default function Home() {
     <Layout seo={seo}>
       <Hero />
       <Projects projects={mockProjects} limit={6} />
-      <Skills skills={mockSkills} />
-      <Testimonials testimonials={mockTestimonials} />
-      <Blog articles={mockBlogArticles} limit={3} />
+      {/* <Skills skills={mockSkills} /> */}
+      {/* <Testimonials testimonials={mockTestimonials} />
+      <Blog articles={mockBlogArticles} limit={3} /> */}
       <Contact />
     </Layout>
   );
