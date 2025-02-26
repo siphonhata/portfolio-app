@@ -1,16 +1,13 @@
-import { GetStaticProps } from 'next';
+// app/types/projects/page.tsx
+
 import Layout from '@/app/components/layout/Layout';
 import Projects from '@/app/components/sections/Projects';
 import { IProject, ISeoProps } from '@/app/types';
-
-// Mock data - in real app would come from API or CMS
 import mockProjects from '@/app/lib/data/projects';
 
-interface ProjectsPageProps {
-  projects: IProject[];
-}
+export default async function ProjectsPage() {
+  const projects: IProject[] = mockProjects;
 
-export default function ProjectsPage({ projects }: ProjectsPageProps) {
   const seo: ISeoProps = {
     title: 'Projects - Sipho Ndlalane',
     description: 'Explore my portfolio of web development and design projects.',
@@ -32,14 +29,3 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
     </Layout>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  // In a real app, you would fetch data from an API or CMS
-  return {
-    props: {
-      projects: mockProjects,
-    },
-    // Revalidate every hour
-    revalidate: 3600,
-  };
-};

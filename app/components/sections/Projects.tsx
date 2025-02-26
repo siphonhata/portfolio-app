@@ -13,9 +13,9 @@ interface ProjectsProps {
   showFilter?: boolean;
 }
 
-const Projects: React.FC<ProjectsProps> = ({ 
-  projects, 
-  limit = 0, 
+const Projects: React.FC<ProjectsProps> = ({
+  projects,
+  limit = 0,
   showFilter = true
 }) => {
   const allCategories = ['All', ...Array.from(new Set(projects.flatMap(project => project.category)))];
@@ -24,18 +24,6 @@ const Projects: React.FC<ProjectsProps> = ({
 
   // Apply limit to projects if specified
   const displayedProjects = limit > 0 ? filteredProjects.slice(0, limit) : filteredProjects;
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -55,7 +43,7 @@ const Projects: React.FC<ProjectsProps> = ({
     if (activeCategory === 'All') {
       setFilteredProjects(projects);
     } else {
-      const filtered = projects.filter(project => 
+      const filtered = projects.filter(project =>
         project.category.includes(activeCategory)
       );
       setFilteredProjects(filtered);
@@ -82,100 +70,93 @@ const Projects: React.FC<ProjectsProps> = ({
 
         {/* Project Filter */}
         {showFilter && (
-          <ProjectFilter 
-            categories={allCategories} 
-            activeCategory={activeCategory} 
-            setActiveCategory={setActiveCategory} 
+          <ProjectFilter
+            categories={allCategories}
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
           />
         )}
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <AnimatePresence mode="wait">
-              {displayedProjects.map((project) => (
-                <div key={project.id} className="card group h-full flex flex-col">
-                  <motion.div
-                    variants={itemVariants}
-                    layout
-                    exit={{ opacity: 0, scale: 0.8 }}
-                  >
-                    {/* Project Thumbnail */}
-                    <div className="relative h-60 overflow-hidden">
-                      <Image
-                        src={project.thumbnail}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div className="flex space-x-4">
-                          {project.liveUrl && (
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-dark-500 hover:bg-primary-600 hover:text-white transition-colors duration-300"
-                              aria-label={`Visit ${project.title} live site`}
-                            >
-                              <FiExternalLink size={18} />
-                            </a>
-                          )}
-                          {project.sourceUrl && (
-                            <a
-                              href={project.sourceUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-dark-500 hover:bg-primary-600 hover:text-white transition-colors duration-300"
-                              aria-label={`View ${project.title} source code`}
-                            >
-                              <FiGithub size={18} />
-                            </a>
-                          )}
-                        </div>
-                      </div>
+        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
+          <AnimatePresence mode="wait">
+            {displayedProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                variants={itemVariants}
+                layout
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="bg-slate-200 p-2 w-full" // Ensures full width for each item
+              >
+                {/* Project Thumbnail */}
+                <div className="relative h-60 overflow-hidden">
+                  <Image
+                    src={project.thumbnail}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="flex space-x-4">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-dark-500 hover:bg-primary-600 hover:text-white transition-colors duration-300"
+                          aria-label={`Visit ${project.title} live site`}
+                        >
+                          <FiExternalLink size={18} />
+                        </a>
+                      )}
+                      {project.sourceUrl && (
+                        <a
+                          href={project.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-dark-500 hover:bg-primary-600 hover:text-white transition-colors duration-300"
+                          aria-label={`View ${project.title} source code`}
+                        >
+                          <FiGithub size={18} />
+                        </a>
+                      )}
                     </div>
-
-                    {/* Project Content */}
-                    <div className="p-6 flex-grow">
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {project.technologies.slice(0, 3).map((tech, index) => (
-                          <span
-                            key={index}
-                            className="text-xs py-1 px-2 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 3 && (
-                          <span className="text-xs py-1 px-2 bg-dark-100 dark:bg-dark-500 text-dark-500 dark:text-dark-100 rounded-full">
-                            +{project.technologies.length - 3}
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                      <p className="text-dark-400 dark:text-dark-200 text-sm mb-4">
-                        {project.description}
-                      </p>
-                      <Link
-                        href={`/projects/${project.slug}`}
-                        className="mt-auto text-primary-600 dark:text-primary-400 hover:underline inline-flex items-center text-sm font-medium"
-                      >
-                        View Details
-                        <FiExternalLink className="ml-1" size={14} />
-                      </Link>
-                    </div>
-                  </motion.div>
+                  </div>
                 </div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+
+                {/* Project Content */}
+                <div className="p-6 flex-grow">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.technologies.slice(0, 3).map((tech, index) => (
+                      <span
+                        key={index}
+                        className="text-xs py-1 px-2 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="text-xs py-1 px-2 bg-dark-100 dark:bg-dark-500 text-dark-500 dark:text-dark-100 rounded-full">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-dark-400 dark:text-dark-200 text-sm mb-4">
+                    {project.description}
+                  </p>
+                  <Link
+                    href={`https:${project.liveUrl}`}
+                    className="mt-auto text-primary-600 dark:text-primary-400 hover:underline inline-flex items-center text-sm font-medium"
+                  >
+                    Visit Site
+                    <FiExternalLink className="ml-1" size={14} />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* View All Projects Button (shown when limit is applied) */}
@@ -187,7 +168,7 @@ const Projects: React.FC<ProjectsProps> = ({
           </div>
         )}
       </div>
-    </section>
+    </section >
   );
 };
 
