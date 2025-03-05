@@ -82,11 +82,15 @@ const Projects: React.FC<ProjectsProps> = ({
           <AnimatePresence mode="wait">
             {displayedProjects.map((project) => (
               <motion.div
+              style={{
+                backgroundColor: '#e2e8f0',
+                padding: '0.5rem',
+                width: '100%'
+              }}
                 key={project.id}
                 variants={itemVariants}
                 layout
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="bg-slate-200 p-2 w-full" // Ensures full width for each item
               >
                 {/* Project Thumbnail */}
                 <div className="relative h-60 overflow-hidden">
