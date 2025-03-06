@@ -1,8 +1,7 @@
-"use client"
+'use client'
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Theme } from '../types';
-
 
 interface ThemeContextProps {
   theme: Theme;
@@ -14,7 +13,7 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { theme, setTheme: setNextTheme, resolvedTheme, systemTheme } = useTheme();
+  const { theme, setTheme: setNextTheme, resolvedTheme } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -23,8 +22,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, []);
 
   const toggleTheme = () => {
-    const currentTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
-    setNextTheme(currentTheme);
+    console.log('Toggle theme called. Current theme:', resolvedTheme);
+    const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
+    console.log('Setting new theme to:', newTheme);
+    setNextTheme(newTheme);
   };
 
   // Ensure theme is treated as Theme type

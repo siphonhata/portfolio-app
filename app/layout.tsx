@@ -1,7 +1,9 @@
+'use client'
 import "./globals.css";
 
 
 // app/layout.tsx
+import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import { ThemeProvider } from '@/app/context/ThemeContext';
 
 export default function RootLayout({
@@ -12,9 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </NextThemesProvider>
       </body>
     </html>
   );

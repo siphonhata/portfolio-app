@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { useThemeContext } from '@/app/context/ThemeContext';
@@ -8,10 +8,20 @@ const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useThemeContext();
   const isDark = theme === 'dark';
 
+  // Log when theme changes
+  useEffect(() => {
+    console.log('Theme in ThemeToggle component:', theme);
+  }, [theme]);
+
+  const handleToggleClick = () => {
+    console.log('Toggle button clicked');
+    toggleTheme();
+  };
+
   return (
     <button
-      className="w-10 h-10 rounded-md bg-dark-100 dark:bg-dark-500 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-800"
-      onClick={toggleTheme}
+      className="w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+      onClick={handleToggleClick}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
