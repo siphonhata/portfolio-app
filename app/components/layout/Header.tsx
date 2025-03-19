@@ -11,8 +11,9 @@ import { IMenuItem } from '@/app/types';
 const menuItems: IMenuItem[] = [
   { id: '1', label: 'Home', path: '/' },
   { id: '2', label: 'Projects', path: '#projects' },
-  { id: '3', label: 'Blog', path: '#blog' },
-  { id: '4', label: 'Contact', path: '#contact' },
+  { id: '3', label: 'Skills', path: '#skills' },
+  { id: '4', label: 'Blog', path: '#blog' },
+  { id: '5', label: 'Contact', path: '#contact' },
 ];
 
 const Header: React.FC = () => {

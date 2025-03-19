@@ -1,10 +1,8 @@
-'use client'
+// Remove 'use client' directive from the top level layout
 import "./globals.css";
-
-
-// app/layout.tsx
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import { ThemeProvider } from '@/app/context/ThemeContext';
+import { Providers } from "./providers";
+
 
 export default function RootLayout({
   children,
@@ -12,13 +10,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
-        <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+        <Providers>
           <ThemeProvider>
             {children}
           </ThemeProvider>
-        </NextThemesProvider>
+        </Providers>
       </body>
     </html>
   );

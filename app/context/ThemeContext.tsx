@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import { Theme } from '../types';
 
 interface ThemeContextProps {
-  theme: Theme;
+  theme: Theme | undefined;
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
   isLoaded: boolean;
@@ -22,17 +22,17 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, []);
 
   const toggleTheme = () => {
+    if (!isLoaded) return;
+    
     console.log('Toggle theme called. Current theme:', resolvedTheme);
     const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
     console.log('Setting new theme to:', newTheme);
     setNextTheme(newTheme);
   };
 
-  // Ensure theme is treated as Theme type
-  const safeTheme: Theme = (theme as Theme) || 'system';
-
+  // Only provide theme values after client-side hydration
   const value = {
-    theme: safeTheme,
+    theme: isLoaded ? (theme as Theme) : undefined,
     setTheme: setNextTheme as (theme: Theme) => void,
     toggleTheme,
     isLoaded,
