@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 // Theme type
 export type Theme = 'light' | 'dark' | 'system';
 
@@ -24,7 +26,7 @@ export interface ISkill {
   id: string;
   name: string;
   icon: string;
-  category: 'frontend' | 'backend' | 'design' | 'other' | 'database' | 'version-control';
+  category: 'frontend' | 'backend' | 'design' | 'other' | 'database' | 'version-control' | 'Programming' | 'Operating Systems' | 'API Development' | 'Monitoring' | 'DevOps' | 'Project Management' | 'Networking';
   proficiency: number; // 1-100
 }
 
