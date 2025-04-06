@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
@@ -19,6 +19,7 @@ const menuItems: IMenuItem[] = [
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentSection, setCurrentSection] = useState('/');
   const router = useRouter();
   const pathname = usePathname();
   const { isLoaded } = useThemeContext();
@@ -30,9 +31,26 @@ const Header: React.FC = () => {
       } else {
         setScrolled(false);
       }
+
+      const sectionIds = ['projects', 'skills', 'blog', 'contact'];
+      let foundSection = '/'; // default to home
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            foundSection = `#${id}`;
+            break;
+          }
+        }
+      }
+
+      setCurrentSection(foundSection);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // run once on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -42,6 +60,16 @@ const Header: React.FC = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const getLinkClasses = (itemPath: string) => {
+    return `font-medium transition-colors hover:text-primary-600 ${
+      (itemPath === '/' && pathname === '/' && currentSection === '/')
+        ? 'text-primary-600'
+        : (itemPath !== '/' && currentSection === itemPath)
+          ? 'text-primary-600'
+          : 'text-black dark:text-white'
+    }`;
   };
 
   return (
@@ -70,9 +98,7 @@ const Header: React.FC = () => {
               <li key={item.id}>
                 <Link
                   href={item.path}
-                  className={`font-medium transition-colors hover:text-primary-600 ${
-                    pathname === item.path ? 'text-primary-600' : ''
-                  }`}
+                  className={getLinkClasses(item.path)}
                   onClick={closeMenu}
                 >
                   {item.label}
@@ -110,9 +136,7 @@ const Header: React.FC = () => {
                 <li key={item.id}>
                   <Link
                     href={item.path}
-                    className={`block font-medium transition-colors hover:text-primary-600 ${
-                      pathname === item.path ? 'text-primary-600' : ''
-                    }`}
+                    className={getLinkClasses(item.path)}
                     onClick={closeMenu}
                   >
                     {item.label}
