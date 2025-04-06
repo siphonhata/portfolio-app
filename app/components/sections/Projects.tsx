@@ -12,7 +12,7 @@ interface ProjectsProps {
   limit?: number;
   showFilter?: boolean;
 }
- 
+
 const Projects: React.FC<ProjectsProps> = ({
   projects,
   limit = 0,
@@ -80,11 +80,11 @@ const Projects: React.FC<ProjectsProps> = ({
           <AnimatePresence mode="wait">
             {displayedProjects.map((project) => (
               <motion.div
-              style={{
-                backgroundColor: '#e2e8f0',
-                padding: '0.5rem',
-                width: '100%'
-              }}
+                style={{
+                  backgroundColor: '#e2e8f0',
+                  padding: '0.5rem',
+                  width: '100%'
+                }}
                 key={project.id}
                 variants={itemVariants}
                 layout
@@ -102,7 +102,7 @@ const Projects: React.FC<ProjectsProps> = ({
                   <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex space-x-4">
                       {project.liveUrl && (
-                        <a
+                        <Link
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -110,7 +110,7 @@ const Projects: React.FC<ProjectsProps> = ({
                           aria-label={`Visit ${project.title} live site`}
                         >
                           <FiExternalLink size={18} />
-                        </a>
+                        </Link>
                       )}
                       {project.sourceUrl && (
                         <a
