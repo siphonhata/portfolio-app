@@ -12,7 +12,7 @@ interface ProjectsProps {
   limit?: number;
   showFilter?: boolean;
 }
-
+ 
 const Projects: React.FC<ProjectsProps> = ({
   projects,
   limit = 0,
@@ -22,7 +22,6 @@ const Projects: React.FC<ProjectsProps> = ({
   const [filteredProjects, setFilteredProjects] = useState<IProject[]>(projects);
   const [activeCategory, setActiveCategory] = useState('All');
 
-  // Apply limit to projects if specified
   const displayedProjects = limit > 0 ? filteredProjects.slice(0, limit) : filteredProjects;
 
   const itemVariants = {
@@ -38,7 +37,6 @@ const Projects: React.FC<ProjectsProps> = ({
     },
   };
 
-  // Filter projects when category changes
   useEffect(() => {
     if (activeCategory === 'All') {
       setFilteredProjects(projects);

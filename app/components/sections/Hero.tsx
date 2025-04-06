@@ -62,20 +62,20 @@ const Hero: React.FC = () => {
                   </span>
                 </motion.div>
               </div>
-              
+
               <div className="mb-4 leading-tight">
                 <motion.h1 variants={itemVariants}>
                   <span className="block">Sipho Ndlalane</span>
-                  <span className="text-primary-600 dark:text-primary-400">Full Stack Developer</span>
+                  <span className="text-primary-600 dark:text-primary-400">Software Engineer</span>
                 </motion.h1>
               </div>
-              
+
               <div className="text-lg md:text-xl mb-8 text-dark-400 dark:text-dark-200 max-w-xl">
                 <motion.p variants={itemVariants}>
-                  I build modern, responsive, and user-friendly web applications using cutting-edge technologies.
+                  Strong foundation in full-stack development, experienced in Python, C#, and JavaScript-based frameworks like React and Node.js.
                 </motion.p>
               </div>
-              
+
               {/* Buttons */}
               <div className="flex flex-wrap gap-4">
                 <motion.div variants={itemVariants}>
@@ -84,10 +84,10 @@ const Hero: React.FC = () => {
                     <FiArrowRight className="ml-2" />
                   </Link>
                 </motion.div>
-                
+
                 <motion.div variants={itemVariants}>
-                  <a 
-                    href="/resume.pdf" 
+                  <a
+                    href="/Sipho-Ndlalane.pdf"
                     download
                     className="btn btn-outline px-6 py-3 rounded-lg"
                   >
@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
                   </a>
                 </motion.div>
               </div>
-              
+
               {/* Social Links */}
               <div className="flex items-center space-x-4 mt-8">
                 <motion.div variants={itemVariants}>
@@ -117,7 +117,7 @@ const Hero: React.FC = () => {
                       <FiGithub size={20} />
                     </a>
                   </motion.div>
-                  
+
                   <motion.div
                     variants={itemVariants}
                     whileHover={{ scale: 1.1 }}
@@ -136,7 +136,7 @@ const Hero: React.FC = () => {
               </div>
             </motion.div>
           </div>
-          
+
           {/* Image */}
           <div className="order-1 lg:order-2 flex justify-center">
             <motion.div
@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Decorative Shapes */}
       <div className="absolute top-20 right-0 w-64 h-64 bg-primary-500/10 rounded-full filter blur-3xl" />
       <div className="absolute bottom-20 left-10 w-72 h-72 bg-secondary-500/10 rounded-full filter blur-3xl" />

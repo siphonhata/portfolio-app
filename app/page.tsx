@@ -8,7 +8,6 @@ import Blog from '@/app/components/sections/Blog';
 import Contact from '@/app/components/sections/Contact';
 import { ISeoProps } from '@/app/types';
 
-// Import your mock data
 import mockProjects from '@/app/lib/data/projects';
 import mockSkills from '@/app/lib/data/skills';
 import mockTestimonials from '@/app/lib/data/testimonials';
@@ -16,8 +15,8 @@ import mockBlogArticles from '@/app/lib/data/articles';
 
 export default function Home() {
   const seo: ISeoProps = {
-    title: 'Sipho Ndlalane - Full Stack Developer',
-    description: 'Full Stack Developer specializing in modern web applications with React, Node.js, and more.',
+    title: 'Sipho Ndlalane - Software Engineer',
+    description: 'Versatile Software Engineer with a strong foundation in full-stack development, experienced in Elixir, Python, C#, and JavaScript-based frameworks like React and Node.js.',
   };
 
   return (
@@ -25,7 +24,7 @@ export default function Home() {
       <Hero />
       <Projects projects={mockProjects} limit={6} />
       <Skills skills={mockSkills} />
-      <Testimonials testimonials={mockTestimonials} />
+      {/* <Testimonials testimonials={mockTestimonials} /> */}
       <Blog articles={mockBlogArticles} limit={3} />
       <Contact />
     </Layout>

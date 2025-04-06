@@ -141,7 +141,7 @@ const Blog: React.FC<BlogProps> = ({ articles, limit = 3 }) => {
                     
                     {/* Read More Link */}
                     <Link
-                      href={`/blog/${article.slug}`}
+                      href={article.slug}
                       className="mt-auto text-primary-600 dark:text-primary-400 hover:underline inline-flex items-center text-sm font-medium"
                     >
                       Read More
