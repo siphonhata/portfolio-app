@@ -24,8 +24,8 @@ const mockProjects: IProject[] = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     category: ['Frontend', 'UI/UX'],
     slug: 'smart-websync-app',
-    liveUrl: 'https://smartwebsync.online',
-    sourceUrl: 'https://github.com/siphonhata/dashboard-site',
+    liveUrl: 'smartwebsync.online',
+    sourceUrl: 'github.com/siphonhata/dashboard-site',
     featured: false,
     createdAt: '',
     updatedAt: ''
@@ -38,8 +38,8 @@ const mockProjects: IProject[] = [
     technologies: ['.Net', 'Redux', 'React', 'CSS'],
     category: ['Full Stack', 'Frontend'],
     slug: 'ecommerce store',
-    liveUrl: 'https://github.com/siphonhata/eCommerce',
-    sourceUrl: 'https://github.com/siphonhata/eCommerce',
+    liveUrl: 'github.com/siphonhata/eCommerce',
+    sourceUrl: 'github.com/siphonhata/eCommerce',
     featured: false,
     createdAt: '',
     updatedAt: ''

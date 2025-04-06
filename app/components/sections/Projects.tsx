@@ -102,6 +102,7 @@ const Projects: React.FC<ProjectsProps> = ({
                   <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex space-x-4">
                       {project.liveUrl && (
+                        
                         <Link
                           href={project.liveUrl}
                           target="_blank"
@@ -112,8 +113,9 @@ const Projects: React.FC<ProjectsProps> = ({
                           <FiExternalLink size={18} />
                         </Link>
                       )}
+                      
                       {project.sourceUrl && (
-                        <a
+                        <Link
                           href={project.sourceUrl}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -121,7 +123,7 @@ const Projects: React.FC<ProjectsProps> = ({
                           aria-label={`View ${project.title} source code`}
                         >
                           <FiGithub size={18} />
-                        </a>
+                        </Link>
                       )}
                     </div>
                   </div>
