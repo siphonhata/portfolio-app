@@ -10,8 +10,8 @@ const mockProjects: IProject[] = [
     technologies: ['TypeScript', 'CCS', 'Tailwind', 'PostgreSQL'],
     category: ['Full Stack', 'Admin Dashboard'],
     slug: 'financial-dashboard',
-    liveUrl: 'nextjs-dashboard-liard-kappa.vercel.app',
-    sourceUrl: 'github.com/siphonhata/nextjs-dashboard',
+    liveUrl: 'https://nextjs-dashboard-liard-kappa.vercel.app',
+    sourceUrl: 'https://github.com/siphonhata/nextjs-dashboard',
     featured: false,
     createdAt: '',
     updatedAt: ''
@@ -24,8 +24,8 @@ const mockProjects: IProject[] = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     category: ['Frontend', 'UI/UX'],
     slug: 'smart-websync-app',
-    liveUrl: 'smartwebsync.online',
-    sourceUrl: 'github.com/siphonhata/dashboard-site',
+    liveUrl: 'https://smartwebsync.online',
+    sourceUrl: 'https://github.com/siphonhata/dashboard-site',
     featured: false,
     createdAt: '',
     updatedAt: ''
@@ -38,8 +38,8 @@ const mockProjects: IProject[] = [
     technologies: ['.Net', 'Redux', 'React', 'CSS'],
     category: ['Full Stack', 'Frontend'],
     slug: 'ecommerce store',
-    liveUrl: 'github.com/siphonhata/eCommerce',
-    sourceUrl: 'github.com/siphonhata/eCommerce',
+    liveUrl: 'https://github.com/siphonhata/eCommerce',
+    sourceUrl: 'https://github.com/siphonhata/eCommerce',
     featured: false,
     createdAt: '',
     updatedAt: ''
